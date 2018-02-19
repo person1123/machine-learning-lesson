@@ -1,0 +1,70 @@
+.interactive-box {
+    background: red;
+    height:400px;
+    display:flex;
+}
+
+.controls {
+    background:blue;
+    height:100%;
+    width:250px;
+}
+
+.results {
+    background:blue;
+    height:100%;
+    width:250px;
+}
+
+.inputs {
+    height:100%;
+    flex: 1;
+    position: relative;
+}
+
+.threshold-line {
+    height:calc(100% - 6px);
+    width:0;
+    border: 3px solid green;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.input-container {
+    height: 50px;
+    width: 100%;
+    background: white;
+    border: 1px solid black;
+    display: flex;
+}
+
+.input_left_column {
+    width: 300px;
+    background: #aaa;
+    height: 100%;
+}
+
+.input_right_column {
+    flex: 1;
+    height: 100%;
+}
+
+.ball {
+    border-radius:25px;
+    width:50px;
+    height:50px;
+    margin: auto auto;
+}
+.ball.red {
+    background: #f00;
+}
+.ball.blue {
+    background: #00f;
+}
+
+.bar {
+    background: #0f0;
+    height:25px;
+    margin:auto 0;
+}
