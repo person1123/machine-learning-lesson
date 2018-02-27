@@ -20,7 +20,6 @@
     height:100%;
     flex: 1;
     position: relative;
-    overflow: auto;
 }
 
 .threshold-line {
@@ -30,6 +29,11 @@
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.data-container {
+    overflow:hidden;
+    height: 100%;
 }
 
 .datum-container {
@@ -68,4 +72,23 @@
     background: #0f0;
     height:25px;
     margin:auto 0;
+}
+
+.guesses {
+    position: absolute;
+    bottom:0px;
+    width:100%;
+}
+
+#left_guess {
+    float:left;
+}
+
+#right_guess {
+    float:right;
+}
+
+.results {
+    font-size: 24px;
+    color:red;
 }
