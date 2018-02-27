@@ -1,27 +1,39 @@
 <html>
 <head>
-<link rel="stylesheet" href="style.css"></style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="learning.js"></script>
+    <link rel="stylesheet" href="style.css"></style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="learning.js"></script>
 
-<script>
-$("document").ready(function() {
-    populateInputs();
-});
-</script>
+    <script>
+    $("document").ready(function() {
+        populateData();
+    });
+    </script>
 </head>
 <body>
 
-<div class="interactive-box">
-<div class="controls">
-<input type="range" min="0" max="100" value="50" class="input-widget" id="threshold">
-</div>
-<div class="inputs">
-<div class="threshold-line"></div>
-</div>
-<div class="results">
-</div>
-<div>
+    <div class="interactive-box">
+        <div class="controls">
+            <div class="sliders">
+                <input type="range" min="0" max="100" value="50" class="input-widget" id="threshold">
+            </div>
+            
+            <input type="button" value="Start" class="start-button">
+        </div>
+        <div class="data">
+            <div style="display:flex;width: 99%;position: absolute;height: 100%;">
+                <div style="width: 300px"></div>
+                <div style="flex:1;position: relative;height: 100%;">
+                    <div class="threshold-line"></div>
+                </div>
+            </div>
+            <div class="data-container"></div>
+        </div>
+            <div class="results">
+                Correct: <span class="result" id="percent_correct"></span>
+            </div>
+        </div>
+    <div>
 
 </body>
 </html>

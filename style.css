@@ -16,10 +16,11 @@
     width:250px;
 }
 
-.inputs {
+.data {
     height:100%;
     flex: 1;
     position: relative;
+    overflow: auto;
 }
 
 .threshold-line {
@@ -31,21 +32,21 @@
     left: 0;
 }
 
-.input-container {
+.datum-container {
     height: 50px;
     width: 100%;
     background: white;
-    border: 1px solid black;
+    border-bottom: 2px solid black;
     display: flex;
 }
 
-.input_left_column {
+.datum_left_column {
     width: 300px;
     background: #aaa;
     height: 100%;
 }
 
-.input_right_column {
+.datum_right_column {
     flex: 1;
     height: 100%;
 }
