@@ -107,7 +107,7 @@ function computeCorrect() {
         total++;
     }
 
-    $('#percent_correct').text(correct / total * 100 + "%");
+    $('#percent_correct').text((correct / total * 100).toFixed(0) + "%");
 }
 
 function addData() {

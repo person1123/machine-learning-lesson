@@ -1,19 +1,47 @@
+
+
 .interactive-box {
-    background: red;
     height:400px;
     display:flex;
+    background: #888;
+    padding: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    color: #a0b336;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black,
+                -1px -1px black, -1px 1px black, 1px -1px black, 1px 1px black,
+                3px 0 black, 4px 0 black, 5px 0 black,
+                6px 0 black, 7px 0 black, 8px 0 black,
+                3px 1px black, 4px 1px black, 5px 1px black,
+                6px 1px black, 7px 1px black, 8px 1px black,
+                3px 2px black, 4px 2px black, 5px 2px black,
+                6px 2px black, 7px 2px black, 8px 2px black,
+                3px -1px black, 4px -1px black, 5px -1px black,
+                6px -1px black, 7px -1px black, 8px -1px black,
+                3px -2px black, 4px -2px black, 5px -2px black,
+                6px -2px black, 7px -2px black, 8px -2px black;
 }
 
 .controls {
-    background:blue;
     height:100%;
     width:250px;
+    padding: 20px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 10px;
+    position: relative;
 }
 
 .results {
-    background:blue;
+    border-radius: 10px;
     height:100%;
     width:250px;
+    padding: 20px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    background: white;
+    position: relative;
 }
 
 .data {
@@ -29,11 +57,31 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 10;
 }
 
 .data-container {
+    border-radius: 10px;
     overflow:hidden;
     height: 100%;
+    box-sizing: border-box;
+}
+
+.data-container::after, .results::after, .controls::after {
+    border-radius: 10px;
+    content:" ";
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background:linear-gradient(rgba(16, 18, 16, 0) 50%, rgba(6, 7, 6, 0.25) 50%),
+               linear-gradient(90deg, rgba(255, 0, 0,0.06), rgba(0, 255, 0, 0.02),rgba(0, 0, 255, 0.06));
+    z-index:20;
+    background-size:100% 2px, 3px 100%;
+    pointer-events:none;
+    box-shadow: 1px 1px 5px #555 inset;
 }
 
 .datum-container {
@@ -45,21 +93,28 @@
 }
 
 .datum_left_column {
-    width: 300px;
+    width: 100px;
     background: #aaa;
     height: 100%;
+    position: relative;
 }
 
 .datum_right_column {
     flex: 1;
     height: 100%;
+    background: #ccc;
+    position: relative;
 }
 
 .ball {
     border-radius:25px;
-    width:50px;
-    height:50px;
-    margin: auto auto;
+    width:30px;
+    height:30px;
+    margin: -15px 0 0 -15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid black;
 }
 .ball.red {
     background: #f00;
@@ -69,15 +124,22 @@
 }
 
 .bar {
-    background: #0f0;
+    position: relative;
+    background: #042;
     height:25px;
-    margin:auto 0;
+    margin-top: -12.5px;
+    top: 50%;
+    border: 2px solid black;
+    box-sizing: border-box;
 }
 
 .guesses {
+    z-index: 15;
     position: absolute;
     bottom:0px;
     width:100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 #left_guess {
@@ -90,5 +152,4 @@
 
 .results {
     font-size: 24px;
-    color:red;
 }
