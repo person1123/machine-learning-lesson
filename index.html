@@ -4,46 +4,89 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="learning.js"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
+
     <script>
     $("document").ready(function() {
         populateData();
+
+        $(".next-button").hover(function() {
+            $("#circle_in").get()[0].beginElement();
+            $("#line_in").get()[0].beginElement();
+        }, function() {
+            $("#circle_out").get()[0].beginElement();
+            $("#line_out").get()[0].beginElement();
+        });
     });
     </script>
 </head>
 <body>
-
-    <div class="interactive-box">
-        <div class="controls">
-            <div class="sliders">
-                <input type="range" min="0" max="100" value="50" class="input-widget" id="threshold">
-            </div>
-            
-            <input type="button" value="Start" class="start-button" id="scroll_toggle_button" onclick="toggleScrolling()">
+    <div class="container">
+        <div class="text-box">
+            <p>Every prediction of the future has artificial intelligence. But although computers have beaten humans at chess, Go,  and more, we still claim that artificial intelligence is something that does not yet exist. Instead, what we have is “machine learning.”</p>
+            <p>Computers are tools for following rules very quickly. Typically, humans create these rules. Machine learning is where the computers figure out the rules for themselves.
+            To see how this works, you will first teach a computer how to sort these colored balls, based on the brightness picked up by a camera.</p>
         </div>
-        <div class="data">
-            <div style="display:flex;width: 99%;position: absolute;height: 100%;">
-                <div style="width: 100px"></div>
-                <div style="flex:1;position: relative;height: 100%;">
-                    <div class="threshold-line"></div>
-                    <div class="guesses">
-                		<select id='left_guess' class='guess_input input-widget'>
-                			<option value="blue">Blue</option>
-                			<option value="red" selected="selected">Red</option>
-                		</select>
-                		<select id='right_guess' class='guess_input input-widget'>
-                			<option value="blue" selected="selected">Blue</option>
-                			<option value="red">Red</option>
-                		</select>
+
+        <div class="next-button" >
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 144 144" style="enable-background:new 0 0 144 144;" xml:space="preserve">
+                <style type="text/css">
+                    .st0{fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+                    .st1{fill:#FFFFFF;stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
+                    .st2{fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
+                </style>
+                <path class="st0" d="M86,32.7c-10.3,0-19.7,4-26.8,10.5l28.3,28.3l-28.8,28.8c7.1,6.8,16.7,11,27.3,11c21.7,0,39.3-17.6,39.3-39.3
+                    S107.7,32.7,86,32.7z"/>
+                <line class="st1" x1="2.5" y1="72" x2="86" y2="72">
+                    <animate id="line_in" begin="indefinite" attributeName="x1" fill="freeze" dur="100ms" to="46.5" d="line_in" />
+                    <animate begin="line_in.begin" attributeName="x2" fill="freeze" dur="100ms" to="130" />
+                    <animate id="line_out" begin="indefinite" attributeName="x1" fill="freeze" dur="100ms" to="2.5" d="line_out" />
+                    <animate begin="line_out.begin" attributeName="x2" fill="freeze" dur="100ms" to="86" />
+                </line>
+                <path class="st0" d="M73.3,14.8c-15,0-28.7,5.8-38.9,15.3l41.1,41.1l-41.9,41.9c10.3,9.9,24.3,16,39.7,16
+                    c31.6,0,57.2-25.6,57.2-57.2S104.8,14.8,73.3,14.8z"/>
+                <polyline class="st2" points="35.5,29.5 129.5,71.5 34.5,114.5 "/>
+                <path class="st0" d="M15.1,43.3C7.4,50.5,2.5,60.8,2.5,72.2c0,11.2,4.6,21.2,12.1,28.4">
+                    <animate id="circle_in" begin="indefinite" attributeName="d" fill="freeze" dur="100ms" to="M59.1,43.3c-7.7,7.2-12.6,17.5-12.6,28.9c0,11.2,4.6,21.2,12.1,28.4" />
+                    <animate id="circle_out" begin="indefinite" attributeName="d" fill="freeze" dur="100ms" to="M15.1,43.3C7.4,50.5,2.5,60.8,2.5,72.2c0,11.2,4.6,21.2,12.1,28.4" />
+                </path>
+            </svg>
+        </div>
+
+
+        <div class="interactive-box">
+            <div class="controls">
+                <div class="sliders">
+                    <input type="range" min="0" max="100" value="50" class="input-widget" id="threshold">
+                </div>
+                
+                <input type="button" value="Start" class="start-button" id="scroll_toggle_button" onclick="toggleScrolling()">
+            </div>
+            <div class="data">
+                <div style="display:flex;width: 99%;position: absolute;height: 100%;">
+                    <div style="width: 100px"></div>
+                    <div style="flex:1;position: relative;height: 100%;">
+                        <div class="threshold-line"></div>
+                        <div class="guesses">
+                    		<select id='left_guess' class='guess_input input-widget'>
+                    			<option value="blue">Blue</option>
+                    			<option value="red" selected="selected">Red</option>
+                    		</select>
+                    		<select id='right_guess' class='guess_input input-widget'>
+                    			<option value="blue" selected="selected">Blue</option>
+                    			<option value="red">Red</option>
+                    		</select>
+                        </div>
                     </div>
                 </div>
+                <div class="data-container"></div>
             </div>
-            <div class="data-container"></div>
-        </div>
-            <div class="results">
-                Correct: <span class="result" id="percent_correct"></span>
+                <div class="results">
+                    Correct: <span class="result" id="percent_correct"></span>
+                </div>
             </div>
-        </div>
-    <div>
+        <div>
+    </div>
 
 </body>
 </html>

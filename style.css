@@ -1,9 +1,26 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    background: #010a1e;
+    color: #a07f9a;
+    color: #ffeeff;
+    text-shadow: -2px 2px 15px #a07f9a, -1px 1px 5px #a07f9a;
+    font-family: 'Mina', sans-serif;
+}
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-box {
+    font-size: 24px;
+    padding: 100px;
+}
 
 .interactive-box {
     height:400px;
     display:flex;
-    background: #888;
     padding: 20px;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
@@ -31,6 +48,7 @@
     background: white;
     border-radius: 10px;
     position: relative;
+    border: 1px solid #a07f9a;
 }
 
 .results {
@@ -42,6 +60,8 @@
     box-sizing: border-box;
     background: white;
     position: relative;
+    box-shadow: 1px 1px 5px #a07f9a;
+    border: 1px solid #a07f9a;
 }
 
 .data {
@@ -65,6 +85,7 @@
     overflow:hidden;
     height: 100%;
     box-sizing: border-box;
+    border: 2px solid #a07f9a;
 }
 
 .data-container::after, .results::after, .controls::after {
