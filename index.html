@@ -3,13 +3,12 @@
     <link rel="stylesheet" href="style.css"></style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="learning.js"></script>
+    <script src="progression.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
 
     <script>
     $("document").ready(function() {
-        populateData();
-
         $(".next-button").hover(function() {
             $("#circle_hover").get()[0].beginElement();
             $("#line_hover").get()[0].beginElement();
@@ -25,13 +24,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="graphic">
+        <div class="graphic box visible" id="hero">
         </div>
-        <div class="text-box">
+        <div class="text-box box visible" id="intro-text">
             <p>Every prediction of the future has artificial intelligence. But although computers have beaten humans at chess, Go,  and more, we still claim that artificial intelligence is something that does not yet exist. Instead, what we have is “machine learning.”</p>
             <p>Computers are tools for following rules very quickly. Typically, humans create these rules. Machine learning is where the computers figure out the rules for themselves.
             To see how this works, you will first teach a computer how to sort these colored balls, based on the brightness picked up by a camera.</p>
-            <a class="next-button" >
+            <a class="next-button" onclick="startSimpleExample()" id="simple-example-button">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 144 144" style="enable-background:new 0 0 144 144;" xml:space="preserve">
                     <style type="text/css">
                         .st0{fill:none;stroke-width:5;stroke-miterlimit:10;}
@@ -63,7 +62,7 @@
         </div>
 
 
-        <div class="interactive-box">
+        <div class="interactive-box box" id="simple-example">
             <div class="controls">
                 <div class="sliders">
                     <input type="range" min="0" max="100" value="50" class="input-widget" id="threshold">

@@ -4,21 +4,13 @@ var data = [
 ];
 
 var dataGenerator;
+var endConditionCallback;
 
-function ballGenerator() {
-    var ball = {};
-    ball.attributes = {}
-    if (Math.random() > 0.6) {
-        ball.type = "blue";
-        ball.attributes.value = 60 + (Math.random() - 0.5) * 40;
-    } else {
-        ball.type = "red";
-        ball.attributes.value = 30 + (Math.random() - 0.5) * 30;
-    }
-    return ball;
+function start(dg, ecc) {
+    dataGenerator = dg;
+    endConditionCallback = ecc;
+    populateData();
 }
-
-dataGenerator = ballGenerator;
 
 function populateData() {
     for (var i = 0; i < 15; i++) {
@@ -68,7 +60,16 @@ function representation(datum) {
 
 function inputChanged() {
     $(".threshold-line").css('left', $('#threshold').val() + '%');
-    
+
+    updateBars();
+    if (scrolling) {
+        toggleScrolling();
+    }
+
+    computeCorrect();
+}
+
+function updateBars() {
     for (var index in data) {
         var datum = data[index];
         
@@ -76,8 +77,6 @@ function inputChanged() {
             $('#datum_' + index + '_attr_' + attr_name).css('width', (datum.attributes[attr_name] * $('#attr_' + attr_name).val() / 100) + '%');
         }
     }
-
-    computeCorrect();
 }
 
 function computeCorrect() {
@@ -108,6 +107,8 @@ function computeCorrect() {
     }
 
     $('#percent_correct').text((correct / total * 100).toFixed(0) + "%");
+
+    endConditionCallback(data, correct / total);
 }
 
 function addData() {
@@ -122,7 +123,7 @@ function addData() {
         scrollTop: $(".data-container").scrollTop() + $('#datum_' + index).outerHeight()
     }, 250);
 
-    inputChanged();
+    updateBars();
     computeCorrect();
 }
 
@@ -148,5 +149,11 @@ function toggleScrolling() {
         }
         data = data.slice(removing);
         $(".data-container").scrollTop(0);
+    }
+}
+
+function finish() {
+    if (scrolling) {
+        toggleScrolling();
     }
 }
