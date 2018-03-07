@@ -3,7 +3,7 @@ function startSimpleExample() {
 	$("#hero").removeClass("visible");
 	$("#simple-example").addClass("visible");
 	$("#intro-text").addClass("top");
-	$("#simple-example-button").animate({"opacity": 0, "height": 0});
+	$("#simple-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
 
 	function ballGenerator() {
 	    var ball = {};
