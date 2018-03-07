@@ -26,37 +26,15 @@
 
 
         <div class="interactive-box box" id="simple-example">
-            <div class="controls">
-                <div class="sliders">
-                    <input type="range" min="0" max="100" value="50" class="input-widget" id="threshold">
-                </div>
-                
-                <input type="button" value="Start" class="start-button" id="scroll_toggle_button" onclick="toggleScrolling()">
-            </div>
-            <div class="data">
-                <div style="display:flex;width: 99%;position: absolute;height: 100%;">
-                    <div style="width: 100px"></div>
-                    <div style="flex:1;position: relative;height: 100%;">
-                        <div class="threshold-line"></div>
-                        <div class="guesses">
-                    		<select id='left_guess' class='guess_input input-widget'>
-                    			<option value="blue">Blue</option>
-                    			<option value="red" selected="selected">Red</option>
-                    		</select>
-                    		<select id='right_guess' class='guess_input input-widget'>
-                    			<option value="blue" selected="selected">Blue</option>
-                    			<option value="red">Red</option>
-                    		</select>
-                        </div>
-                    </div>
-                </div>
-                <div class="data-container"></div>
-            </div>
-                <div class="results">
-                    Correct: <span class="result" id="percent_correct"></span>
-                </div>
-            </div>
-        <div>
+        </div>
+        <div class="text-box box" id="second-text">
+            <p>This was not too hard, was it? Let’s try something a little more difficult. Now try to teach the computer how to sort out the small, green balls from a group of green and yellow balls of different sizes.</p>
+            <a class="next-button" onclick="startTwoExample()" id="two-example-button">
+                NEXT
+            </a>
+        </div>
+        <div class="interactive-box box" id="two-example">
+        </div>
     </div>
 
 </body>

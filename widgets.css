@@ -1,7 +1,19 @@
+input[type=button] {
+    background: #3f2e40;
+    border-radius:3px;
+    padding:15px;
+    color: white;
+    font-size: 18px;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-top: 15px;
+}
+
+
+/****** RANGE ******/
 input[type=range] {
   -webkit-appearance: none;
   width: 100%;
-  margin: 11.5px 0;
+  margin: 20px 0;
 }
 input[type=range]:focus {
   outline: none;

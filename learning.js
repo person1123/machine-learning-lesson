@@ -5,11 +5,21 @@ var data = [
 
 var dataGenerator;
 var endConditionCallback;
+var parentDiv;
 
-function start(dg, ecc) {
+function start(dg, ecc, div) {
+    if (parentDiv) {
+        parentDiv.html("");
+    }
+    
     dataGenerator = dg;
     endConditionCallback = ecc;
-    populateData();
+    parentDiv = div;
+    
+    $.get("interactive-box.html", function(data){
+        div.html(data);
+        populateData();
+    });
 }
 
 function populateData() {
