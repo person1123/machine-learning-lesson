@@ -6,17 +6,31 @@ var data = [
 var dataGenerator;
 var endConditionCallback;
 var parentDiv;
+var representation;
+var left_guess;
+var right_guess;
 
-function start(dg, ecc, div) {
+var request;
+
+function start(dg, ecc, div, rep, lg, rg) {
+    //while (parentDiv && parentDiv.children().length == 0);
+
     if (parentDiv) {
-        parentDiv.html("");
+        parentDiv.empty();
     }
     
     dataGenerator = dg;
     endConditionCallback = ecc;
     parentDiv = div;
+    representation = rep;
+    left_guess = lg;
+    right_guess = rg;
     
-    $.get("interactive-box.html", function(data){
+    if (request) {
+        request.abort();
+    }
+
+    request = $.get("interactive-box.html", function(data){
         div.html(data);
         populateData();
     });
@@ -64,10 +78,6 @@ function buildDiv(index, datum, parent) {
     parent.append(container);
 }
 
-function representation(datum) {
-    return $("<div class='ball " + datum.type + "'></div>");
-}
-
 function inputChanged() {
     $(".threshold-line").css('left', $('#threshold').val() + '%');
 
@@ -82,9 +92,12 @@ function inputChanged() {
 function updateBars() {
     for (var index in data) {
         var datum = data[index];
+
+        console.log(datum);
         
         for (var attr_name in datum.attributes) {
-            $('#datum_' + index + '_attr_' + attr_name).css('width', (datum.attributes[attr_name] * $('#attr_' + attr_name).val() / 100) + '%');
+            $('#datum_' + index + '_attr_' + attr_name).css('width',
+                (datum.attributes[attr_name] * $('#attr_' + attr_name).val() / 100) + '%');
         }
     }
 }
@@ -105,9 +118,9 @@ function computeCorrect() {
             value += datum.attributes[attr_name] * $('#attr_' + attr_name).val() / 100;
         }
         if (value < $('#threshold').val()) {
-            guess = $('#left_guess').val();
+            guess = left_guess;
         } else {
-            guess = $('#right_guess').val();
+            guess = right_guess;
         }
 
         if (guess == datum.type) {

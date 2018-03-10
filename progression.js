@@ -20,6 +20,10 @@ function startSimpleExample() {
 	$("#intro-text").addClass("top");
 	$("#simple-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
 
+
+function representation(datum) {
+    return $("<div class='ball " + datum.type + "'></div>");
+}
 	function ballGenerator() {
 	    var ball = {};
 	    ball.attributes = {}
@@ -40,7 +44,7 @@ function startSimpleExample() {
         }
     }
 
-	start(ballGenerator, endConditionCallback, $("#simple-example"));
+	start(ballGenerator, endConditionCallback, $("#simple-example"), representation, "red", "blue");
 }
 
 function simpleExampleFinished() {
@@ -54,6 +58,10 @@ function startTwoExample() {
 	$("#second-text").addClass("top");
 	$("#two-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
 
+	function representation(datum) {
+	    return $("<div class='ball " + datum.color + " " + datum.size + "'></div>");
+	}
+
 	function ballGenerator() {
 	    var ball = {};
 	    ball.attributes = {}
@@ -61,7 +69,7 @@ function startTwoExample() {
         var green = Math.random() < 0.5;
         var small = Math.random() < 0.5;
         if (green) {
-	        ball.attributes.value = 30 + (Math.random() - 0.5) * 30;
+	        ball.attributes.color = 30 + (Math.random() - 0.5) * 30;
         } else {
 	        ball.attributes.color = 60 + (Math.random() - 0.5) * 40;
         }
@@ -75,6 +83,8 @@ function startTwoExample() {
 	    } else {
 	        ball.type = "other";
 	    }
+	    ball.color = green ? "green" : "yellow";
+	    ball.size = small ? "small" : "";
 	    return ball;
 	}
     
@@ -85,7 +95,7 @@ function startTwoExample() {
         }
     }
 
-	start(ballGenerator, endConditionCallback, $("#two-example"));
+	start(ballGenerator, endConditionCallback, $("#two-example"), representation, "green_small", "other");
 }
 
 function twoExampleFinished(data, correct) {
