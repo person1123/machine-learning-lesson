@@ -284,3 +284,12 @@ body {
     height: 50%;
     transition:top 0.5s ease-in;
 }
+
+#mortgageman {
+    position: fixed;
+    bottom: 100%;
+    right: 50px;
+    height: 80%;
+    transition:top 0.5s ease-in;
+    z-index: -1;
+}

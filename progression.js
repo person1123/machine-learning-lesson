@@ -146,6 +146,7 @@ function startRealWorldExample() {
 	$("#real-world-example").addClass("visible");
 	$("#real-world-text").addClass("top");
 	$("#real-world-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
+	$("#mortgageman").css("bottom", "0");
 
 	function representation(datum) {
 	    return $("<div class='mortgage " + datum.type + "'></div>");
