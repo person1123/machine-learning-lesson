@@ -1,6 +1,4 @@
 progressionFunctions = [
-    startSimpleExample,
-    simpleExampleFinished,
     startTwoExample,
     twoExampleFinished,
     downloadRealWorldData
@@ -15,50 +13,10 @@ $("document").ready(function() {
    }   
 });
 
-function startSimpleExample() {
-	$("#hero").removeClass("visible");
-	$("#simple-example").addClass("visible");
-	$("#intro-text").addClass("top");
-	$("#simple-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
-	onRearrange();
-
-
-	function representation(datum) {
-	    return $("<div class='ball " + datum.type + "'></div>");
-	}
-	function ballGenerator() {
-	    var ball = {};
-	    ball.attributes = {}
-	    if (Math.random() > 0.6) {
-	        ball.type = "blue";
-	        ball.attributes.value = 60 + (Math.random() - 0.5) * 40;
-	    } else {
-	        ball.type = "red";
-	        ball.attributes.value = 30 + (Math.random() - 0.5) * 30;
-	    }
-	    return ball;
-	}
-    
-    function endConditionCallback(data, correct) {
-        if (correct > .86 && data.length > 25) {
-            finish();
-            simpleExampleFinished();
-        }
-    }
-
-	start(ballGenerator, endConditionCallback, $("#simple-example"), representation, "red", "blue");
-}
-
-function simpleExampleFinished() {
-    $("#intro-text").removeClass("visible");
-    $("#second-text").addClass("visible");
-	onRearrange();
-}
-
 function startTwoExample() {
-	$("#simple-example").removeClass("visible");
+	$("#hero").removeClass("visible");
 	$("#two-example").addClass("visible");
-	$("#second-text").addClass("top");
+	$("#intro-text").addClass("top");
 	$("#two-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
 	onRearrange();
 
@@ -103,8 +61,9 @@ function startTwoExample() {
 }
 
 function twoExampleFinished(data, correct) {
-    $("#second-text").removeClass("visible");
+    $("#intro-text").removeClass("visible");
     $("#real-world-text").addClass("visible");
+	$("#mortgageman").css("bottom", "0");
 	onRearrange();
 }
 
@@ -149,7 +108,6 @@ function startRealWorldExample() {
 	$("#real-world-example").addClass("visible");
 	$("#real-world-text").addClass("top");
 	$("#real-world-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
-	$("#mortgageman").css("bottom", "0");
 	onRearrange();
 
 	function representation(datum) {
@@ -181,9 +139,13 @@ function startRealWorldExample() {
 	}
     
     function endConditionCallback(data, correct) {
-        if (correct > .86 && data.length > 25) {
+    	if (correct > .86 && data.length > 25) {
             finish();
-            realWorldExampleFinished();
+            alert("WOW YOU'RE SMART!!!");
+        }
+
+        if (data.length > 25) {
+        	$("#give-up-button").css('visibility', 'visible');
         }
     }
 
