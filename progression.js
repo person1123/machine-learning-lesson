@@ -20,6 +20,7 @@ function startSimpleExample() {
 	$("#simple-example").addClass("visible");
 	$("#intro-text").addClass("top");
 	$("#simple-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
+	$("#arrows").css("top", "100%");
 
 
 function representation(datum) {
