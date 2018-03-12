@@ -20,12 +20,12 @@ function startSimpleExample() {
 	$("#simple-example").addClass("visible");
 	$("#intro-text").addClass("top");
 	$("#simple-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
-	$("#arrows").css("top", "100%");
+	onRearrange();
 
 
-function representation(datum) {
-    return $("<div class='ball " + datum.type + "'></div>");
-}
+	function representation(datum) {
+	    return $("<div class='ball " + datum.type + "'></div>");
+	}
 	function ballGenerator() {
 	    var ball = {};
 	    ball.attributes = {}
@@ -52,6 +52,7 @@ function representation(datum) {
 function simpleExampleFinished() {
     $("#intro-text").removeClass("visible");
     $("#second-text").addClass("visible");
+	onRearrange();
 }
 
 function startTwoExample() {
@@ -59,6 +60,7 @@ function startTwoExample() {
 	$("#two-example").addClass("visible");
 	$("#second-text").addClass("top");
 	$("#two-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
+	onRearrange();
 
 	function representation(datum) {
 	    return $("<div class='ball " + datum.color + " " + datum.size + "'></div>");
@@ -103,6 +105,7 @@ function startTwoExample() {
 function twoExampleFinished(data, correct) {
     $("#second-text").removeClass("visible");
     $("#real-world-text").addClass("visible");
+	onRearrange();
 }
 
 var hmdaData;
@@ -147,6 +150,7 @@ function startRealWorldExample() {
 	$("#real-world-text").addClass("top");
 	$("#real-world-example-button").animate({"opacity": 0, "height": 0, "margin-bottom": 0});
 	$("#mortgageman").css("bottom", "0");
+	onRearrange();
 
 	function representation(datum) {
 	    return $("<div class='mortgage " + datum.type + "'></div>");

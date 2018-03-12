@@ -15,6 +15,7 @@ body {
     height:0;
     overflow:hidden;
     margin:0;
+    padding:0;
 }
 .box.visible {
     visibility: visible;
@@ -283,6 +284,8 @@ body {
     left: 50px;
     height: 50%;
     transition:top 0.5s ease-in;
+    z-index: -1;
+    visibility: hidden;
 }
 
 #mortgageman {

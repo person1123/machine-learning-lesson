@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
 <head>
     <link rel="stylesheet" href="style.css"></style>
@@ -9,6 +10,17 @@
     <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
 
     <script>
+        function onRearrange() {
+            if($(window).scrollTop() + $(window).height() == $(document).height()) {
+               $("#arrows").css("visibility", "hidden");
+            } else {
+                $("#arrows").css("visibility", "visible");
+            }
+        }
+
+        $(window).scroll(onRearrange);
+        $(window).resize(onRearrange);
+        $(document).ready(onRearrange);
     </script>
 </head>
 <body>
