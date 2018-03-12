@@ -156,3 +156,7 @@ function realWorldExampleFinished(data, correct) {
     $("#real-world-text").removeClass("visible");
     $("#adfadsfasdfad-text").addClass("visible");
 }
+
+function giveUp() {
+    startTraining();
+}

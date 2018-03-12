@@ -126,6 +126,20 @@ function computeCorrect() {
         if (guess == datum.type) {
             correct++;
         }
+        if (training && !datum.trained) {
+            //var error = $('#threshold').val() - value;
+            var error = (datum.type == left_guess ? 0 : 100) - value;
+            for (var attr_name in datum.attributes) {
+                var curr = $('#attr_' + attr_name).val();
+                
+                $('#attr_' + attr_name).val(curr - learningRate * error * datum.attributes[attr_name])
+            }
+            
+            //$('#threshold').val($('#threshold').val() - learningRate * error * 10);
+            //$(".threshold-line").css('left', $('#threshold').val() + '%');
+            
+            datum.trained = true;
+        }
         total++;
     }
 
@@ -179,4 +193,13 @@ function finish() {
     if (scrolling) {
         toggleScrolling();
     }
+}
+
+var learningRate = .02;
+var training = false;
+function startTraining() {
+    if (!scrolling) {
+        toggleScrolling();
+    }
+    training = true;
 }
