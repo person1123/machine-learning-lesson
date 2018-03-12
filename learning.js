@@ -30,8 +30,10 @@ function start(dg, ecc, div, rep, lg, rg) {
         request.abort();
     }
 
-    request = $.get("interactive-box.html", function(data){
-        div.html(data);
+    request = $.get("interactive-box.html", function(d){
+        div.html(d);
+        data = [];
+
         populateData();
     });
 }
@@ -92,8 +94,6 @@ function inputChanged() {
 function updateBars() {
     for (var index in data) {
         var datum = data[index];
-
-        console.log(datum);
         
         for (var attr_name in datum.attributes) {
             $('#datum_' + index + '_attr_' + attr_name).css('width',
