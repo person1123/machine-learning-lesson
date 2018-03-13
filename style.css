@@ -3,7 +3,7 @@ body {
     font-weight: 100;
     background: #525252;
     color: #ffeeff;
-    text-shadow: -2px 2px 15px #7353BA, -1px 1px 5px #7353BA;
+    text-shadow: -2px 2px 15px #FF4D80, -1px 1px 5px #FF4D80;
     font-family: 'Mina', sans-serif;
 }
 
@@ -78,7 +78,7 @@ body {
     padding-bottom: 100px;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
-    color: #7353BA;
+    color: #80FFE8;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black,
                 -1px -1px black, -1px 1px black, 1px -1px black, 1px 1px black,
                 3px 0 black, 4px 0 black, 5px 0 black,
@@ -295,4 +295,13 @@ body {
     height: 80%;
     transition:top 0.5s ease-in;
     z-index: -1;
+}
+
+.highlighted {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff3232+0,ff8832+7,fcf532+12,90fc32+18,32fc3c+24,32ffb7+31,32e0ff+39,304bff+46,7a28ff+52,de28ff+58,c226f2+64,00f4f0+72,cc2ecc+80,38b9f4+90,ff00f6+100,7db9e8+100 */
+    background: #ff3232; !important /* Old browsers */
+    background: -moz-linear-gradient(left, #ff3232 0%, #ff8832 7%, #fcf532 12%, #90fc32 18%, #32fc3c 24%, #32ffb7 31%, #32e0ff 39%, #304bff 46%, #7a28ff 52%, #de28ff 58%, #c226f2 64%, #00f4f0 72%, #cc2ecc 80%, #38b9f4 90%, #ff00f6 100%, #7db9e8 100%) !important ; /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #ff3232 0%,#ff8832 7%,#fcf532 12%,#90fc32 18%,#32fc3c 24%,#32ffb7 31%,#32e0ff 39%,#304bff 46%,#7a28ff 52%,#de28ff 58%,#c226f2 64%,#00f4f0 72%,#cc2ecc 80%,#38b9f4 90%,#ff00f6 100%,#7db9e8 100%) !important ; /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #ff3232 0%,#ff8832 7%,#fcf532 12%,#90fc32 18%,#32fc3c 24%,#32ffb7 31%,#32e0ff 39%,#304bff 46%,#7a28ff 52%,#de28ff 58%,#c226f2 64%,#00f4f0 72%,#cc2ecc 80%,#38b9f4 90%,#ff00f6 100%,#7db9e8 100%) !important ; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#7db9e8',GradientType=1 ) !important ; /* IE6-9 */
 }

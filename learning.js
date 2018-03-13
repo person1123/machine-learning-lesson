@@ -57,6 +57,14 @@ function populateData() {
     }
     
     $('.input-widget').on('input', inputChanged);
+    $('.input-widget').on('mousedown', function() {
+        var clss = $(this).attr('id').substring(5) + '_bar';
+        $('.' + clss).addClass('highlighted');
+    });
+    $('.input-widget').on('mouseup', function() {
+        var clss = $(this).attr('id').substring(5) + '_bar';
+        $('.' + clss).removeClass('highlighted');
+    });
     
     inputChanged();
 }
@@ -71,7 +79,7 @@ function buildDiv(index, datum, parent) {
     left_column.append(representation(datum));
     
     for (var attr_name in datum.attributes) {
-        right_column.append("<div class='bar' id='datum_" + index + "_attr_" + attr_name + "'></div>");
+        right_column.append("<div class='bar " + attr_name + "_bar' id='datum_" + index + "_attr_" + attr_name + "'></div>");
     }
     
     container.append(left_column);
