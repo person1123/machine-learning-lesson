@@ -50,14 +50,43 @@
         </a>
         <div class="text-box box" id="too-hard-text">
             <p> That was a little too hard, right? Although we know these are all factors, we don’t fully understand how they combine. But computers are very good at doing things fast. This is where machine learning comes in. If we show the computer hundreds of examples, we can adjust the knobs every time it gets one wrong, based on how much that knob contributed to that mistake. This will automatically correct for errors over and over until the predictions are extremely good.</p>
-            <a class="next-button" onclick="showWhatTaught()" id="too-hard-button">
+            <a class="next-button" onclick="showWhatTaught()" id="what-taught-button">
                 NEXT
             </a>
         </div>
         <div class="text-box box" id="what-taught-text">
             <p> But what exactly did the computer teach itself? Since we didn’t tell it what to do, in order to understand why it does any particular action we have to guess based on what it does to similar inputs. For example, let’s take a look at the houses two different neighborhoods with the same median input.</p>
-            <a class="next-button" onclick="showFinalCarousel()" id="what-taught-button">
+            <a class="next-button" onclick="showNeighborhoods()" id="neighborhoods-button">
                 NEXT
+            </a>
+        </div>
+        <div class="graphic box" id="bias-image">
+        </div>
+        <div class="text-box box" id="neighborhoods-text">
+            <p> What’s the difference between these two neighborhoods?</p>
+            <p> Neighborhood 1 is historically black and neighborhood 2 is historically white. Did we just create a racist AI?</p>
+            <p>Apparently, but we didn’t include race anywhere. How did this happen?</p>
+            <p>The answer is that it’s hidden in our “correct” answers that the computer trained itself from. Because those were based on decisions made by people, who have society’s ingrained biases, the bias is hidden in the machine learning model that the computer created. The algorithm is not neutral.</p>
+            <a class="next-button" onclick="showEffects()" id="effects-button">
+                NEXT
+            </a>
+        </div>
+        <div class="graphic box" id="effects-image">
+        </div>
+        <div class="text-box box" id="effects-text">
+            <p> How do we fix this problem? If you can figure that out, please let us know. But just know that machine learning models are used in situations including determining sentencing of inmates, computing housing prices (as we showed), and determining what ads you’re shown, including political ads. For more information on this, read <a href="https://medium.com/@yonatanzunger/asking-the-right-questions-about-ai-7ed2d9820c48">this</a>.</p>
+            <a class="next-button" onclick="showNeuralNetworks()" id="neural-networks-button">
+                NEXT
+            </a>
+        </div>
+        <div class="graphic box" id="neuralnets-image">
+        </div>
+        <div class="text-box box" id="neural-networks-text">
+            <p> In real life, hundreds of tiny models like this are combined in ways that let them learn more and more complicated things about the data, which are combined to be able to take things into account in relatively smart ways. To learn more about this technique, called deep neural networks, read <a href="http://www.explainthatstuff.com/introduction-to-neural-networks.html">this</a>, or for a slightly more technical expanation, read this <a href="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/">this</a>.</p>
+            <p>Machine learning can also be used to create things, such as images (DeepDream, that thing with fake porn, FaceApp, style transfer) or text (Google Translate). To learn about that, read <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">this</a> (this article does assume some familiarity with coding). 
+            </p>
+            <a class="next-button home" onclick="document.location.reload()" id="home-button">
+                HOME
             </a>
         </div>
     </div>

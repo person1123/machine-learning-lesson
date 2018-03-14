@@ -12,10 +12,10 @@ body {
     /*visibility:hidden;*/
 }
 .box:not(.visible) {
-    height:0;
+    height:0 !important;
     overflow:hidden;
-    margin:0;
-    padding:0;
+    margin:0 !important;
+    padding:0 !important;
 }
 .box.visible {
     visibility: visible;
@@ -62,13 +62,44 @@ body {
 
 .graphic {
     width:100%;
-    height:400px;
-    background:url("hero.gif");
     background-size:contain;
     background-repeat:no-repeat;
     background-position:center;
+}
+
+#hero {
     margin-top:200px;
     margin-bottom:150px;
+    height:400px;
+    background-image:url("hero.gif");
+}
+
+#effects-image {
+    height:100%;
+    background-image:url("effects.gif");
+    left:0;
+    top:0;
+    position: absolute;
+    z-index: -10;
+    background-position: left;
+}
+
+#effects-text {
+    margin-top: 300px;
+    background: rgba(48, 34, 79, 1);
+    padding:40px;
+}
+
+#neuralnets-image {
+    height:600px;
+    background-image:url("neuralnets.gif");
+}
+
+#bias-image {
+    height:600px;
+    margin-top:75px;
+    margin-bottom:75px;
+    background-image:url("bias.gif");
 }
 
 .interactive-box {
@@ -283,7 +314,7 @@ body {
     bottom: 0;
     left: 50px;
     height: 50%;
-    transition:top 0.5s ease-in;
+    transition:bottom 0.5s ease-in;
     z-index: -1;
     visibility: hidden;
 }

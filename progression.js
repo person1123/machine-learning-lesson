@@ -1,7 +1,12 @@
 progressionFunctions = [
     startTwoExample,
     twoExampleFinished,
-    downloadRealWorldData
+    downloadRealWorldData,
+    giveUp,
+    showWhatTaught,
+    showNeighborhoods,
+    showEffects,
+    showNeuralNetworks
 ];
 
 $("document").ready(function() {
@@ -138,14 +143,19 @@ function startRealWorldExample() {
 	    return item;
 	}
     
+
+	var showedGiveUpButton = false;
     function endConditionCallback(data, correct) {
     	if (correct > .86 && data.length > 25) {
             finish();
+            realWorldExampleFinished();
             alert("WOW YOU'RE SMART!!!");
         }
 
-        if (data.length > 25) {
+        if (!showedGiveUpButton && data.length > 25) {
+        	showedGiveUpButton = true;
         	$("#give-up-button").css('visibility', 'visible');
+			onRearrange();
         }
     }
 
@@ -154,11 +164,45 @@ function startRealWorldExample() {
 
 function realWorldExampleFinished(data, correct) {
     $("#real-world-text").removeClass("visible");
-    $("#adfadsfasdfad-text").addClass("visible");
+    $("#too-hard-text").addClass("visible");
+	onRearrange();
 }
 
 function giveUp() {
     startTraining();
+	$("#give-up-button").css('display', 'none');
     $("#real-world-text").removeClass("visible");
     $("#too-hard-text").addClass("visible");
+	onRearrange();
+}
+
+function showWhatTaught() {
+	$("#too-hard-text").removeClass("visible");
+	$("#what-taught-text").addClass("visible");
+	onRearrange();
+}
+
+function showNeighborhoods() {
+	$("#mortgageman").css("bottom", "100%");
+	$("#real-world-example").removeClass("visible");
+	$("#what-taught-text").removeClass("visible");
+	$("#neighborhoods-text").addClass("visible");
+	$("#bias-image").addClass("visible");
+	onRearrange();
+}
+
+function showEffects() {
+	$("#bias-image").removeClass("visible");
+	$("#neighborhoods-text").removeClass("visible");
+	$("#effects-text").addClass("visible");
+	$("#effects-image").addClass("visible");
+	onRearrange();
+}
+
+function showNeuralNetworks() {
+	$("#effects-image").removeClass("visible");
+	$("#effects-text").removeClass("visible");
+	$("#neural-networks-text").addClass("visible");
+	$("#neuralnets-image").addClass("visible");
+	onRearrange();
 }
