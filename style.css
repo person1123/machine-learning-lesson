@@ -97,6 +97,8 @@ body {
 #neuralnets-image {
     height:600px;
     background-image:url("neuralnets.gif");
+    position: absolute;
+    z-index: -1;
 }
 
 #bias-image {
