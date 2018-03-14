@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 90.3 64.4" style="enable-background:new 0 0 90.3 64.4;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#245927;stroke:#000000;stroke-miterlimit:10;}
-	.st1{opacity:0.22;}
-	.st2{fill:#FFFFFF;}
-</style>
-<polygon points="26.3,28.6 15.9,27.8 19.4,46 29.4,45.2 "/>
-<polygon points="43.8,45.6 31.8,46.1 35.3,64.3 45.3,63.6 "/>
-<polygon points="82,1.8 73.3,0.3 64.2,12.3 72.5,14.2 "/>
-<path d="M26.3,28.6c-2,5-15,14-15,14s22,6,34,21c0,0,13-44,45-46c0,0-12-9-8-16c0,0-33,19-39,43L26.3,28.6z"/>
-<path class="st0" d="M16.2,28.4c-2,5-15,14-15,14s22,6,34,21c0,0,13-44,45-46c0,0-12-9-8-16c0,0-33,19-39,43L16.2,28.4z"/>
-<g class="st1">
-	<path class="st2" d="M71.2,15.4c0,0-19.5,7.5-24.5,14.5c-6.3,8.8-9,18-12.5,28.5c0,0,2.2-9.7,12.5-24.5
-		C55.7,20.9,71.2,15.4,71.2,15.4z"/>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 252 144" enable-background="new 0 0 252 144" xml:space="preserve">
+<g id="Layer_1" display="none">
+	<polygon display="inline" points="83.9,64 60.6,62.2 68.4,102.9 90.8,101.1 	"/>
+	<polygon display="inline" points="123,102 96.1,103.1 104,143.8 126.3,142.2 	"/>
+	<polygon display="inline" points="208.4,4 188.9,0.7 168.6,27.5 187.2,31.8 	"/>
+	<path display="inline" d="M83.9,64c-4.5,11.2-33.5,31.3-33.5,31.3s49.2,13.4,76,47c0,0,29.1-98.4,100.6-102.9
+		c0,0-26.8-20.1-17.9-35.8c0,0-73.8,42.5-87.2,96.1L83.9,64z"/>
+</g>
+<g id="Layer_2">
+	<path fill="#4FBF52" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M61.3,63.1c-4.5,11.2-33.5,31.3-33.5,31.3
+		s49.2,13.4,76,47c0,0,29.1-98.4,100.6-102.9c0,0-26.8-20.1-17.9-35.8c0,0-73.8,42.5-87.2,96.1L61.3,63.1z"/>
+	<g opacity="0.22">
+		<path display="none" fill="#FFFFFF" d="M184.2,34.4c0,0-43.6,16.8-54.8,32.4c-14.1,19.7-20.1,40.2-28,63.7c0,0,4.9-21.7,28-54.8
+			C149.6,46.7,184.2,34.4,184.2,34.4z"/>
+	</g>
 </g>
 </svg>
