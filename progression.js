@@ -159,4 +159,6 @@ function realWorldExampleFinished(data, correct) {
 
 function giveUp() {
     startTraining();
+    $("#real-world-text").removeClass("visible");
+    $("#too-hard-text").addClass("visible");
 }

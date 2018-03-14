@@ -48,6 +48,18 @@
         <a class="next-button" onclick="giveUp()" id="give-up-button" style="visibility: hidden; margin-top: 0px;">
             GIVE UP
         </a>
+        <div class="text-box box" id="too-hard-text">
+            <p> That was a little too hard, right? Although we know these are all factors, we don’t fully understand how they combine. But computers are very good at doing things fast. This is where machine learning comes in. If we show the computer hundreds of examples, we can adjust the knobs every time it gets one wrong, based on how much that knob contributed to that mistake. This will automatically correct for errors over and over until the predictions are extremely good.</p>
+            <a class="next-button" onclick="showWhatTaught()" id="too-hard-button">
+                NEXT
+            </a>
+        </div>
+        <div class="text-box box" id="what-taught-text">
+            <p> But what exactly did the computer teach itself? Since we didn’t tell it what to do, in order to understand why it does any particular action we have to guess based on what it does to similar inputs. For example, let’s take a look at the houses two different neighborhoods with the same median input.</p>
+            <a class="next-button" onclick="showFinalCarousel()" id="what-taught-button">
+                NEXT
+            </a>
+        </div>
     </div>
     <img id="arrows" src="arrows.gif">
     <img id="mortgageman" src="mortgageman.gif">
