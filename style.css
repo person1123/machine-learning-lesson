@@ -130,7 +130,7 @@ body {
                 6px -2px black, 7px -2px black, 8px -2px black;
 }
 
-.bar, .ball {
+.bar {
     box-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black,
                 -1px -1px black, -1px 1px black, 1px -1px black, 1px 1px black,
                 3px 0 black, 4px 0 black, 5px 0 black,
@@ -238,7 +238,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    border: 2px solid black;
+    border: 3px solid black;
 }
 .ball.red {
     background: #f00;

@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 252 144" enable-background="new 0 0 252 144" xml:space="preserve">
-<g id="Layer_1" display="none">
-	<polygon display="inline" points="152.7,116.3 179.4,116.3 182.5,144 155.8,144 	"/>
-	<polygon display="inline" points="68.5,118.3 95.2,118.3 96.2,144 69.5,144 	"/>
-	<polygon display="inline" points="155.8,0.2 181.5,1.2 185.6,27.9 156.8,25.9 	"/>
-	<polygon display="inline" points="70.5,1.2 97.2,1.2 101.3,27.9 72.6,25.9 	"/>
-	<path display="inline" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M152.7,70.5l48.7-40.1c0,0-15.8-7.8-20.7-20.5
-		l-41.5,48.9c-0.4,0-41.3-48.5-41.3-48.5S90.1,26.1,77.3,31c0,0,48.7,41.7,48.7,42.1c0,0.2-48.5,40.5-48.5,40.5s15.8,7.8,20.7,20.5
-		c0,0,41.7-48.7,42.1-48.7c0.2,0,40.5,48.5,40.5,48.5s7.8-15.8,20.5-20.7C201.4,113.2,152.7,71.1,152.7,70.5z"/>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 252 144" style="enable-background:new 0 0 252 144;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{display:inline;stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
+	.st3{fill:#CC5050;stroke:#000000;stroke-width:15;stroke-miterlimit:10;}
+	.st4{opacity:0.22;}
+	.st5{fill:#FFFFFF;}
+</style>
+<g id="Layer_1_1_" class="st0">
+	<polygon class="st1" points="152.7,116.3 179.4,116.3 182.5,144 155.8,144 	"/>
+	<polygon class="st1" points="68.5,118.3 95.2,118.3 96.2,144 69.5,144 	"/>
+	<polygon class="st1" points="155.8,0.2 181.5,1.2 185.6,27.9 156.8,25.9 	"/>
+	<polygon class="st1" points="70.5,1.2 97.2,1.2 101.3,27.9 72.6,25.9 	"/>
+	<path class="st2" d="M152.7,70.5l48.7-40.1c0,0-15.8-7.8-20.7-20.5l-41.5,48.9c-0.4,0-41.3-48.5-41.3-48.5S90.1,26.1,77.3,31
+		c0,0,48.7,41.7,48.7,42.1c0,0.2-48.5,40.5-48.5,40.5s15.8,7.8,20.7,20.5c0,0,41.7-48.7,42.1-48.7c0.2,0,40.5,48.5,40.5,48.5
+		s7.8-15.8,20.5-20.7C201.4,113.2,152.7,71.1,152.7,70.5z"/>
 </g>
 <g id="Layer_2">
-	<path fill="#CC5050" stroke="#000000" stroke-width="5" stroke-miterlimit="10" d="M126,70.5l48.7-40.1c0,0-15.8-7.8-20.7-20.5
-		l-41.5,48.9c-0.4,0-41.3-48.5-41.3-48.5S63.3,26.1,50.6,31c0,0,48.7,41.7,48.7,42.1c0,0.2-48.5,40.5-48.5,40.5s15.8,7.8,20.7,20.5
-		c0,0,41.7-48.7,42.1-48.7c0.2,0,40.5,48.5,40.5,48.5s7.8-15.8,20.5-20.7C174.7,113.2,126,71.1,126,70.5z"/>
-	<g opacity="0.22">
-		<path fill="#FFFFFF" d="M119.8,85.5c0,0,30.8,30.8,39,32.9c0,0-8.2,0-6.2,4.1L119.8,85.5z"/>
+	<path class="st3" d="M126,70.5l48.7-40.1c0,0-15.8-7.8-20.7-20.5l-41.5,48.9c-0.4,0-41.3-48.5-41.3-48.5S63.3,26.1,50.6,31
+		c0,0,48.7,41.7,48.7,42.1c0,0.2-48.5,40.5-48.5,40.5s15.8,7.8,20.7,20.5c0,0,41.7-48.7,42.1-48.7c0.2,0,40.5,48.5,40.5,48.5
+		s7.8-15.8,20.5-20.7C174.7,113.2,126,71.1,126,70.5z"/>
+	<g class="st4">
+		<path class="st5" d="M119.8,85.5c0,0,30.8,30.8,39,32.9c0,0-8.2,0-6.2,4.1L119.8,85.5z"/>
 	</g>
 </g>
 </svg>
