@@ -21,6 +21,30 @@
         $(window).scroll(onRearrange);
         $(window).resize(onRearrange);
         $(document).ready(onRearrange);
+
+
+        $(document).ready(function() {
+            setInterval(function() {
+                var url = "cursors/cursor.png";
+                if (Math.random() < .1) {
+                    url = "cursors/cursor1.png";
+                }
+                if (Math.random() < .075) {
+                    url = "cursors/cursor2.png";
+                }
+                $("body").css("cursor", "url('" + url + "'), auto");
+            }, 50);
+        });
+
+        $("*").click(function() {
+            var updateCursor = function(num) {
+                $("body").css("cursor", "url('cursors/cursor_click" + num + ".png'), auto");
+                if (num < 5) {
+                    setTimeout(function() { updateCursor(num + 1); }, 50);
+                }
+            }
+            setTimeout(function() { updateCursor(0); }, 50);
+        });
     </script>
 </head>
 <body>
