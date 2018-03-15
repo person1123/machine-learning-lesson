@@ -120,33 +120,12 @@ function computeCorrect() {
             break;
         }
 
-        var value = 0;
-        var guess;
-        for (var attr_name in datum.attributes) {
-            value += datum.attributes[attr_name] * $('#attr_' + attr_name).val() / 100;
-        }
-        if (value < $('#threshold').val()) {
-            guess = left_guess;
-        } else {
-            guess = right_guess;
-        }
-
+        var guess = getGuess(datum);
         if (guess == datum.type) {
             correct++;
         }
         if (training && !datum.trained) {
-            //var error = $('#threshold').val() - value;
-            var error = (datum.type == left_guess ? 0 : 100) - value;
-            for (var attr_name in datum.attributes) {
-                var curr = $('#attr_' + attr_name).val();
-                
-                $('#attr_' + attr_name).val(curr - learningRate * error * datum.attributes[attr_name])
-            }
-            
-            //$('#threshold').val($('#threshold').val() - learningRate * error * 10);
-            //$(".threshold-line").css('left', $('#threshold').val() + '%');
-            
-            datum.trained = true;
+            train(datum);
         }
         total++;
     }
@@ -154,6 +133,42 @@ function computeCorrect() {
     $('#percent_correct').text((correct / total * 100).toFixed(0) + "%");
 
     endConditionCallback(data, correct / total);
+}
+
+function getValue(datum) {
+    var value = 0;
+    var guess;
+    for (var attr_name in datum.attributes) {
+        value += datum.attributes[attr_name] * $('#attr_' + attr_name).val() / 100;
+    }
+    return value;
+}
+
+function getGuess(datum) {
+    var value = getValue(datum);
+    if (value < $('#threshold').val()) {
+        return left_guess;
+    } else {
+        return right_guess;
+    }
+}
+
+trained_values = [ -6.66888963e+01,  -7.57406808e-14,  -7.57406808e-14, -1.56358345e+01, 6.66888963e+01,  -3.90462296e+01]
+trained_intercept = 7.77777
+function train(datum) {
+    var value = getValue(datum);
+    //var error = $('#threshold').val() - value;
+    var error = 1 - (datum.type == left_guess ? -1 : 1) * (value - $('#threshold').val());
+    for (var attr_name in datum.attributes) {
+        var curr = $('#attr_' + attr_name).val();
+        
+        $('#attr_' + attr_name).val(curr - learningRate * error * datum.attributes[attr_name])
+    }
+    
+    //$('#threshold').val($('#threshold').val() - learningRate * error * 10);
+    //$(".threshold-line").css('left', $('#threshold').val() + '%');
+    
+    datum.trained = true;
 }
 
 function addData() {
@@ -203,7 +218,7 @@ function finish() {
     }
 }
 
-var learningRate = .02;
+var learningRate = .05;
 var training = false;
 function startTraining() {
     if (!scrolling) {

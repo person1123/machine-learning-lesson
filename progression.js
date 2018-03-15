@@ -78,7 +78,7 @@ var hmdaData;
 
 var query = "hmda_lar_good.json"
 var metrics = [ "loan_amount_000s", "number_of_1_to_4_family_units",
-				  "number_of_owner_occupied_units", "minority_population", "population", "rate_spread",
+				  "number_of_owner_occupied_units", "minority_population", "population",
 				  "tract_to_msamd_income" ];
 
 var mins = {};
@@ -124,6 +124,8 @@ function startRealWorldExample() {
 	function mortgageGenerator() {
 		var datum = hmdaData[index];
         index++;
+        if (index > hmdaData.length)
+        	index = 0;
 
 		var item = {};
 	    item.attributes = {};
