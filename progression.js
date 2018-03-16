@@ -152,20 +152,23 @@ function startRealWorldExample() {
 	    return visDatumFromMortgage(datum);
 	}
     
+    setTimeout(function() {
+
+        	showedGiveUpButton = true;
+        	$("#give-up-button").css('visibility', 'visible');
+			onRearrange();
+		}, 30000);
 
 	var showedGiveUpButton = false;
     function endConditionCallback(data, correct) {
-    	if (correct > .86 && data.length > 25) {
+    	/*if (correct > .86 && data.length > 25) {
             finish();
             realWorldExampleFinished();
             alert("WOW YOU'RE SMART!!!");
         }
 
         if (!showedGiveUpButton && data.length > 25) {
-        	showedGiveUpButton = true;
-        	$("#give-up-button").css('visibility', 'visible');
-			onRearrange();
-        }
+        }*/
     }
 
 	start(mortgageGenerator, endConditionCallback, $("#real-world-example"), representation, "failure", "success");
