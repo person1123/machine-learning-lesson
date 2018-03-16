@@ -53,7 +53,7 @@ function populateData() {
     
     var attributes = data[0].attributes;
     for (var attr_name in attributes) {
-        $(".sliders").append('<input type="range" min="0" max="100" value="50" class="input-widget" id="attr_' + attr_name + '">');
+        $(".sliders").append('<input type="range" min="-100" max="100" value="50" class="input-widget" id="attr_' + attr_name + '">');
     }
     
     $('.input-widget').on('input', inputChanged);
@@ -105,7 +105,7 @@ function updateBars() {
         
         for (var attr_name in datum.attributes) {
             $('#datum_' + index + '_attr_' + attr_name).css('width',
-                (datum.attributes[attr_name] * $('#attr_' + attr_name).val() / 100) + '%');
+                attributeValue(datum, attr_name) + '%');
         }
     }
 }
@@ -135,11 +135,15 @@ function computeCorrect() {
     endConditionCallback(data, correct / total);
 }
 
+function attributeValue(datum, attr_name) {
+    return (100 + datum.attributes[attr_name] * $('#attr_' + attr_name).val() / 100.0) / 2 / Object.keys(datum.attributes).length;
+}
+
 function getValue(datum) {
     var value = 0;
     var guess;
     for (var attr_name in datum.attributes) {
-        value += datum.attributes[attr_name] * $('#attr_' + attr_name).val() / 100;
+        value += attributeValue(datum, attr_name);
     }
     return value;
 }
@@ -153,10 +157,13 @@ function getGuess(datum) {
     }
 }
 
-trained_values = [ -6.66888963e+01,  -7.57406808e-14,  -7.57406808e-14, -1.56358345e+01, 6.66888963e+01,  -3.90462296e+01]
-trained_intercept = 7.77777
+var metrics = [ "loan_amount_000s", "number_of_1_to_4_family_units",
+                  "number_of_owner_occupied_units", "minority_population", "population",
+                  "tract_to_msamd_income" ]
+var trained_values = [ -6.66888963e+01,  -7.57406808e-14,  -7.57406808e-14, -1.56358345e+01, 6.66888963e+01,  -3.90462296e+01]
+var trained_intercept = 7.77777
 function train(datum) {
-    var value = getValue(datum);
+    /*var value = getValue(datum);
     //var error = $('#threshold').val() - value;
     var error = 1 - (datum.type == left_guess ? -1 : 1) * (value - $('#threshold').val());
     for (var attr_name in datum.attributes) {
@@ -167,8 +174,13 @@ function train(datum) {
     
     //$('#threshold').val($('#threshold').val() - learningRate * error * 10);
     //$(".threshold-line").css('left', $('#threshold').val() + '%');
-    
+    */
     datum.trained = true;
+    for (var i in metrics) {
+        $('#attr_' + metrics[i]).val(trained_values[i] * 100);
+    }
+    $("#threshold").val(trained_intercept + 50);
+    $(".threshold-line").css('left', $('#threshold').val() + '%');
 }
 
 function addData() {

@@ -131,7 +131,7 @@ function startRealWorldExample() {
 	    item.attributes = {};
 
 	    for (var i in metrics) {
-	    	item.attributes[metrics[i]] = (datum[metrics[i]] - mins[i]) / (maxes[i] - mins[i]) * 20;
+	    	item.attributes[metrics[i]] = (datum[metrics[i]] - mins[i]) / (maxes[i] - mins[i]) * 100;
 	    }
 
 	    //loan originated
@@ -178,7 +178,18 @@ function giveUp() {
 	onRearrange();
 }
 
+var whitePeopleData;
+var blackPeopleData;
+
 function showWhatTaught() {
+	for (var i in hmdaData) {
+		if (hmdaData[i].applicant_ethnicity_1 == 5) {
+			whitePeopleData.append(hmdaData[i]);
+		}
+		if (hmdaData[i].applicant_ethnicity_1 == 3) {
+			whitePeopleData.append(hmdaData[i]);
+		}
+	}
 	$("#too-hard-text").removeClass("visible");
 	$("#what-taught-text").addClass("visible");
 	onRearrange();
