@@ -118,6 +118,7 @@ body {
     display:flex;
     padding: 20px;
     padding-bottom: 100px;
+    position: relative;
 }
 
 .result-span, .interactive-box {
@@ -375,7 +376,7 @@ body {
 .start-button {
     position: absolute;
     display: block;
-    bottom: 10px;
+    bottom: 120px;
     z-index: 10;
     right: 45%;
 }
