@@ -43,7 +43,7 @@ function populateData() {
         data.push(dataGenerator());
     }
     
-    var parent = $(".data-container");
+    var parent = parentDiv.find(".data-container");
     
     for (var index in data) {
         var datum = data[index];
@@ -116,7 +116,7 @@ function computeCorrect() {
     for (var index in data) {
         var datum = data[index];
         var currDiv = $("#datum_" + index);
-        if (!$(".data-container").scrollTop() + $(".data-container").height() < currDiv.position().top) {
+        if (!parentDiv.find(".data-container").scrollTop() + parentDiv.find(".data-container").height() < currDiv.position().top) {
             break;
         }
 
@@ -160,8 +160,6 @@ function getGuess(datum) {
 var metrics = [ "loan_amount_000s", "number_of_1_to_4_family_units",
                   "number_of_owner_occupied_units", "minority_population", "population",
                   "tract_to_msamd_income" ]
-var trained_values = [ -6.66888963e+01,  -7.57406808e-14,  -7.57406808e-14, -1.56358345e+01, 6.66888963e+01,  -3.90462296e+01]
-var trained_intercept = 7.77777
 function train(datum) {
     /*var value = getValue(datum);
     //var error = $('#threshold').val() - value;
@@ -188,11 +186,11 @@ function addData() {
     var index = data.length;
     data.push(datum);
     
-    var parent = $(".data-container");
+    var parent = parentDiv.find(".data-container");
     buildDiv(index, datum, parent)
 
-    $(".data-container").animate({
-        scrollTop: $(".data-container").scrollTop() + $('#datum_' + index).outerHeight()
+    parent.animate({
+        scrollTop: parent.scrollTop() + $('#datum_' + index).outerHeight()
     }, 250);
 
     updateBars();
@@ -210,8 +208,9 @@ function toggleScrolling() {
         $("#scroll_toggle_button").attr('value', 'Start');
         clearInterval(timerId);
         scrolling = false;
-        $(".data-container").stop();
-        var removing = Math.floor($(".data-container").scrollTop() / $(".datum-container").outerHeight());
+        var dataContainer = parentDiv.find(".data-container");
+        dataContainer.stop();
+        var removing = Math.floor(dataContainer.scrollTop() / $(".datum-container").outerHeight());
         for (var index in data) {
             if (index - removing < 0) {
                 $("#datum_" + index).remove();
@@ -220,7 +219,7 @@ function toggleScrolling() {
             }
         }
         data = data.slice(removing);
-        $(".data-container").scrollTop(0);
+        dataContainer.scrollTop(0);
     }
 }
 

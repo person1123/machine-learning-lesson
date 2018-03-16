@@ -81,6 +81,9 @@ var metrics = [ "loan_amount_000s", "number_of_1_to_4_family_units",
 				  "number_of_owner_occupied_units", "minority_population", "population",
 				  "tract_to_msamd_income" ];
 
+var trained_values = [ -6.66888963,  -7.57406808e-15,  -7.57406808e-15, -1.56358345, 6.66888963,  -3.90462296]
+var trained_intercept = .777777
+
 var mins = {};
 var maxes = {};
 
@@ -108,6 +111,25 @@ function downloadRealWorldData() {
 	});
 }
 
+function visDatumFromMortgage(datum) {
+	var item = {};
+    item.attributes = {};
+
+    for (var i in metrics) {
+    	item.attributes[metrics[i]] = (datum[metrics[i]] - mins[i]) / (maxes[i] - mins[i]) * 100;
+    }
+
+    //loan originated
+    // may want to filter out 6: loan purchased by the institution
+    if (datum.action_taken == 1) {
+    	item.type = "success";
+    } else {
+    	item.type = "failure";
+    }
+
+    return item;
+}
+
 function startRealWorldExample() {
 	$("#two-example").removeClass("visible");
 	$("#real-world-example").addClass("visible");
@@ -127,22 +149,7 @@ function startRealWorldExample() {
         if (index > hmdaData.length)
         	index = 0;
 
-		var item = {};
-	    item.attributes = {};
-
-	    for (var i in metrics) {
-	    	item.attributes[metrics[i]] = (datum[metrics[i]] - mins[i]) / (maxes[i] - mins[i]) * 100;
-	    }
-
-	    //loan originated
-	    // may want to filter out 6: loan purchased by the institution
-	    if (datum.action_taken == 1) {
-	    	item.type = "success";
-	    } else {
-	    	item.type = "failure";
-	    }
-
-	    return item;
+	    return visDatumFromMortgage(datum);
 	}
     
 
@@ -178,29 +185,95 @@ function giveUp() {
 	onRearrange();
 }
 
-var whitePeopleData;
-var blackPeopleData;
+function scrollComparison() {
+    $(".data-container").animate({
+        scrollTop: $(".data-container").scrollTop() + $('#datum_0').outerHeight()
+    }, 250);
 
+    var value = 0;
+    for (var j in metrics) {
+    	var attr_name = metrics[j];
+        value += (100 + whitePeopleData[counted].attributes[attr_name] * trained_values[j]) / 2 / metrics.length;
+    }
+    if (value > trained_intercept + 50) {
+    	leftSum++;
+    }
+
+    value = 0;
+    for (var j in metrics) {
+    	var attr_name = metrics[j];
+        value += (100 + blackPeopleData[counted].attributes[attr_name] * trained_values[j]) / 2 / metrics.length;
+    }
+    if (value > trained_intercept + 50) {
+    	rightSum++;
+    }
+
+    counted++;
+
+    $("#left-approved").text((leftSum / 100.0 * counted).toFixed(2) + "%");
+    $("#right-approved").text((rightSum / 100.0 * counted).toFixed(2) + "%");
+}
+
+var whitePeopleData = [];
+var blackPeopleData = [];
+var comparisonTimer;
+var counted;
+var leftSum=0, rightSum=0;
 function showWhatTaught() {
+	$("#real-world-example").empty();
 	for (var i in hmdaData) {
-		if (hmdaData[i].applicant_ethnicity_1 == 5) {
-			whitePeopleData.append(hmdaData[i]);
+		if (hmdaData[i].applicant_race_name_1 == "White") {
+			whitePeopleData.push(visDatumFromMortgage(hmdaData[i]));
 		}
-		if (hmdaData[i].applicant_ethnicity_1 == 3) {
-			whitePeopleData.append(hmdaData[i]);
+		if (hmdaData[i].applicant_race_name_1 == "Black or African American") {
+			blackPeopleData.push(visDatumFromMortgage(hmdaData[i]));
 		}
 	}
+	for (var i in whitePeopleData) {
+		buildDiv(i, whitePeopleData[i], $(".small-data.left .data-container"));
+		var value = 0;
+        for (var j in metrics) {
+        	var attr_name = metrics[j];
+        	var av = (100 + whitePeopleData[i].attributes[attr_name] * trained_values[j]) / 2 / metrics.length;
+        	value += av;
+            $('#datum_' + i + '_attr_' + attr_name).css('width', av + '%');
+        }
+        if (value > trained_intercept + 50) {
+        	leftSum++;
+        }
+	}
+	for (var i in blackPeopleData) {
+		buildDiv(i + whitePeopleData.length, blackPeopleData[i], $(".small-data.right .data-container"));
+		var value = 0;
+        for (var j in metrics) {
+        	var attr_name = metrics[j];
+        	var av = (100 + blackPeopleData[i].attributes[attr_name] * trained_values[j]) / 2 / metrics.length;
+            value += av;
+            $('#datum_' + (i + whitePeopleData.length) + '_attr_' + attr_name).css('width', av + '%');
+        }
+        if (value > trained_intercept + 50) {
+        	rightSum++;
+        }
+	}
+	$(".threshold-line").css('left', (trained_intercept + 50) + '%');
+
+	counted = Math.floor($(".data-container").outerHeight() / $('#datum_0').outerHeight());
+	comparisonTimer = setInterval(scrollComparison, 1000);
+
 	$("#too-hard-text").removeClass("visible");
 	$("#what-taught-text").addClass("visible");
+	$("#real-world-example").removeClass("visible");
+	$("#neighborhood-comparison").addClass("visible");
 	onRearrange();
 }
 
 function showNeighborhoods() {
+	clearInterval(comparisonTimer);
 	$("#mortgageman").css("bottom", "100%");
-	$("#real-world-example").removeClass("visible");
 	$("#what-taught-text").removeClass("visible");
 	$("#neighborhoods-text").addClass("visible");
 	$("#bias-image").addClass("visible");
+	$("#neighborhood-comparison .next-button").css("display", "none");
 	onRearrange();
 }
 

@@ -80,13 +80,35 @@
         </div>
         <div class="text-box box" id="what-taught-text">
             <p> But what exactly did the computer teach itself? Since we didn’t tell it what to do, in order to understand why it does any particular action we have to guess based on what it does to similar inputs. For example, let’s take a look at the houses two different neighborhoods with the same median input.</p>
-            <a class="next-button" onclick="showNeighborhoods()" id="neighborhoods-button">
+        </div>
+        <div class="box" id="neighborhood-comparison">
+            <div class="small-data left">
+                <div style="display:flex;width: 99%;position: absolute;height: 100%;">
+                    <div style="width: 100px"></div>
+                    <div style="flex:1;position: relative;height: 100%;">
+                        <div class="threshold-line"></div>
+                    </div>
+                </div>
+                <div class="data-container"></div>
+            </div>
+            <div class="small-data right">
+                <div style="display:flex;width: 99%;position: absolute;height: 100%;">
+                    <div style="width: 100px"></div>
+                    <div style="flex:1;position: relative;height: 100%;">
+                        <div class="threshold-line"></div>
+                    </div>
+                </div>
+                <div class="data-container"></div>
+            </div>
+            <span class="result-span" style="float:left">Approved: <span class="result" id="left-approved"></span></span>
+            <span class="result-span"  style="float:right">Approved: <span class="result" id="right-approved"></span></span>
+            <a class="next-button" style="clear:both" onclick="showNeighborhoods()" id="neighborhoods-button">
                 NEXT
             </a>
         </div>
         <div class="graphic box" id="bias-image">
         </div>
-        <div class="text-box box" id="neighborhoods-text">
+        <div class="text-box box" id="neighborhoods-text" style="clear:both">
             <p> What’s the difference between these two neighborhoods?</p>
             <p> Neighborhood 1 is historically black and neighborhood 2 is historically white. Did we just create a racist AI?</p>
             <p>Apparently, but we didn’t include race anywhere. How did this happen?</p>
