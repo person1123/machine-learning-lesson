@@ -175,7 +175,7 @@ function train(datum) {
     */
     datum.trained = true;
     for (var i in metrics) {
-        $('#attr_' + metrics[i]).val(trained_values[i] * 100);
+        $('#attr_' + metrics[i]).val(trained_values[i] * 100 * .05 + $('#attr_' + metrics[i]).val() * .95);
     }
     $("#threshold").val(trained_intercept + 50);
     $(".threshold-line").css('left', $('#threshold').val() + '%');
