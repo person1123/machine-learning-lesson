@@ -371,3 +371,11 @@ body {
 #neighborhood-comparison, #what-taught-text {
     margin-top:100px;
 }
+
+.start-button {
+    position: absolute;
+    display: block;
+    bottom: 10px;
+    z-index: 10;
+    right: 45%;
+}
