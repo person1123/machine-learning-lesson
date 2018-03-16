@@ -216,6 +216,9 @@ function toggleScrolling() {
                 $("#datum_" + index).remove();
             } else {
                 $("#datum_" + index).attr('id', "datum_" + (index - removing));
+                for (var attr in data[index].attributes) {
+                    $("#datum_" + index + "_attr_" + attr).attr('id', "datum_" + (index - removing)+ "_attr_" + attr);
+                }
             }
         }
         data = data.slice(removing);
