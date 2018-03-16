@@ -279,6 +279,7 @@ function showNeighborhoods() {
 
 function showEffects() {
 	$("#bias-image").removeClass("visible");
+	$("#neighborhood-comparison").removeClass("visible");
 	$("#neighborhoods-text").removeClass("visible");
 	$("#effects-text").addClass("visible");
 	$("#effects-image").addClass("visible");
