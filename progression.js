@@ -36,14 +36,14 @@ function startTwoExample() {
         var green = Math.random() < 0.5;
         var small = Math.random() < 0.5;
         if (green) {
-	        ball.attributes.color = 30 + (Math.random() - 0.5) * 30;
+	        ball.attributes.color = 20 + (Math.random() - 0.5) * 20;
         } else {
-	        ball.attributes.color = 60 + (Math.random() - 0.5) * 40;
+	        ball.attributes.color = 70 + (Math.random() - 0.5) * 30;
         }
         if (small) {
-	        ball.attributes.size = 20 + (Math.random() - 0.5) * 30;
+	        ball.attributes.size = 10 + (Math.random() - 0.5) * 10;
         } else {
-	        ball.attributes.size = 80 + (Math.random() - 0.5) * 40;
+	        ball.attributes.size = 80 + (Math.random() - 0.5) * 20;
         }
 	    if (green && small) {
 	        ball.type = "green_small";
