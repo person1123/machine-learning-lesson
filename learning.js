@@ -124,6 +124,9 @@ function computeCorrect() {
         var guess = getGuess(datum);
         if (guess == datum.type) {
             correct++;
+            currDiv.find(".datum_left_column").text("");
+        } else {
+            currDiv.find(".datum_left_column").text("X");
         }
         if (training && !datum.trained) {
             train(datum);

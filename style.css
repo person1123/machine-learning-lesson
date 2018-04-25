@@ -243,10 +243,13 @@ body {
 }
 
 .datum_left_column {
+    text-align: center;
     width: 100px;
     background: rgba(128, 255, 232, .75);
     height: 100%;
     position: relative;
+    color: #FF4D80;
+    font-size: 36px;
 }
 
 .datum_right_column {
