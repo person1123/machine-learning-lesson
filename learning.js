@@ -76,11 +76,12 @@ function buildDiv(index, datum, parent) {
     var left_column = $("<div class='datum_left_column'></div>");
     var right_column = $("<div class='datum_right_column'></div>");
     
-    left_column.append(representation(datum));
     
     for (var attr_name in datum.attributes) {
         right_column.append("<div class='bar " + attr_name + "_bar' id='datum_" + index + "_attr_" + attr_name + "'></div>");
     }
+    
+    right_column.append(representation(datum));
     
     container.append(left_column);
     container.append(right_column);
